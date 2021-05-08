@@ -5,7 +5,7 @@ Penyelesaian Soal Shift 3 Sistem Operasi 2021
 Kelompok IT
   * Clarissa Fatimah 053119400000012
   * Ghimnastiar Al Abiyyuna 05311940000042
-  * Ravina Rahmanisa 0531194000046
+  * Ravina Rahmanisa 05311940000046
 
 ---
 ## Table of Contents
