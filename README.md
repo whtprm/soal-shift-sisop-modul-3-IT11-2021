@@ -1,6 +1,5 @@
 # soal-shift-sisop-modul-3-IT11-2021
 
-<<<<<<< HEAD
 # Penjelasan dan Penyelesaian Soal Shift Modul 3 Sistem Operasi
 <p> berikut ini merupakan repository resmi untuk laporan soal shift.</p>
 
@@ -74,6 +73,118 @@ Kemudian, dari aplikasi client akan dimasukan data buku tersebut (perlu diingat 
 `` empty ``
 # Kendala-Soal-1
 Masih awam dengan socket programming pada OS Linux menggunakan Bahasa C
+
+# Soal 2
+Crypto (kamu) adalah teman Loba. Suatu pagi, Crypto melihat Loba yang sedang kewalahan mengerjakan tugas dari bosnya. Karena Crypto adalah orang yang sangat menyukai tantangan, dia ingin membantu Loba mengerjakan tugasnya. Detil dari tugas tersebut adalah:
+
+**a.**
+Membuat program perkalian matrix (4x3 dengan 3x6) dan menampilkan hasilnya. Matriks nantinya akan berisi angka 1-20 (tidak perlu dibuat filter angka).
+
+**b.**
+Membuat program dengan menggunakan matriks output dari program sebelumnya (program soal2a.c) (Catatan!: gunakan shared memory). Kemudian matriks tersebut akan dilakukan perhitungan dengan matrix baru (input user) sebagai berikut contoh perhitungan untuk matriks yang a da. Perhitungannya adalah setiap cel yang berasal dari matriks A menjadi angka untuk faktorial, lalu cel dari matriks B menjadi batas maksimal faktorialnya matri(dari paling besar ke paling kecil) (Catatan!: gunakan thread untuk perhitungan di setiap cel). Ketentuan 
+```
+If a >= b  -> a!/(a-b)!
+If b > a -> a!
+If 0 -> 0
+```
+## Penyelesaian Soal 2
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <unistd.h>
+```
+Import Library
+```c
+long matriks1[4][3], matriks2[3][6]; 
+
+void scanning(int baris, int column, long matriks[baris][column]) 
+{
+    printf("Input Matriks : \n");
+    int i;
+    int j;
+    for (i = 0; i < baris; i++) {
+        for (j = 0; j < column; j++) {
+            scanf("%ld", &matriks[i][j]);
+        
+        }
+    }
+}
+```
+Mengambil Input Matriks
+
+```c
+void printMatriks(int baris, int column, long matriks[baris][column]) 
+{
+    printf("Matriks %d %d:\n",baris, column);
+    int i;
+    int j;
+    for (i = 0; i < baris; i++) {
+        for (j = 0; j < column; j++) {
+            printf("%ld\t", matriks[i][j]);
+        }
+        printf("\n");
+    }
+}
+```
+Print Matriks
+```c
+void main() {
+    key_t key = 2468; 
+    long *hasil;
+    int shmid = shmget(key, sizeof(int), IPC_CREAT | 0666);
+    hasil = shmat(shmid, NULL, 0);
+
+    scanning(4,3,matriks1);
+    scanning(3,6,matriks2);
+```
+Pembuatan key untuk penyelesaian soal berikutnya
+```c
+long jumlah = 0;
+
+    int i;
+    int j;
+    int k;
+    for (i = 0; i < 4; i++) { 
+        for (j = 0; j < 6; j++) {
+            for (k = 0; k < 3; k++) {
+            jumlah = jumlah + matriks1[i][k] * matriks2[k][j];
+            }
+            *(hasil + 6*i + j) = jumlah;
+            jumlah = 0;
+        }
+    }
+
+    printMatriks(4,3,matriks1);
+    printf("\n");
+
+    printMatriks(3,6,matriks2);
+    printf("\n");
+```
+Perkalian Matriks       
+```c
+  printf("Hasil Perkalian Matriks:\n");
+    for (int i = 0; i < 4; i++) { 
+        for (int j = 0; j < 6; j++) {
+            printf("%ld\t", *(hasil + 6*i + j));
+        }
+        printf("\n");
+    }
+
+    sleep(10);
+
+    shmdt(hasil);
+}
+```
+Menampilkan hasil perkalian matriks
+
+## Output soal 2
+#### output
+![sebelum](./soal2/soal2.jpg)
+
+## Kendala soal 2
+belum bisa menyelesaikan opsi b dan c
 
 # Soal 3
 Seorang mahasiswa bernama Alex sedang mengalami masa gabut. Di saat masa gabutnya, ia memikirkan untuk merapikan sejumlah file yang ada di laptopnya. Karena jumlah filenya terlalu banyak, Alex meminta saran ke Ayub. Ayub menyarankan untuk membuat sebuah program C agar file-file dapat dikategorikan. Program ini akan memindahkan file sesuai ekstensinya ke dalam folder sesuai ekstensinya yang folder hasilnya terdapat di working directory ketika program kategori tersebut dijalankan.
