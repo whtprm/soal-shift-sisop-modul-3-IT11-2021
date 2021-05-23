@@ -71,7 +71,7 @@ Kemudian, dari aplikasi client akan dimasukan data buku tersebut (perlu diingat 
 # penyelesaian-soal-1
 
 # Output-Soal-1
- 
+`` empty ``
 # Kendala-Soal-1
 Masih awam dengan socket programming pada OS Linux menggunakan Bahasa C
 
