@@ -73,7 +73,7 @@ Kemudian, dari aplikasi client akan dimasukan data buku tersebut (perlu diingat 
 # Output-Soal-1
  
 # Kendala-Soal-1
-Masih awam dengna socket programing pada OS Linux menggunakan Bahasa C
+Masih awam dengan socket programming pada OS Linux menggunakan Bahasa C
 
 # Soal 3
 Seorang mahasiswa bernama Alex sedang mengalami masa gabut. Di saat masa gabutnya, ia memikirkan untuk merapikan sejumlah file yang ada di laptopnya. Karena jumlah filenya terlalu banyak, Alex meminta saran ke Ayub. Ayub menyarankan untuk membuat sebuah program C agar file-file dapat dikategorikan. Program ini akan memindahkan file sesuai ekstensinya ke dalam folder sesuai ekstensinya yang folder hasilnya terdapat di working directory ketika program kategori tersebut dijalankan.
