@@ -359,21 +359,32 @@ int main(int argc, char *argv[]) {
 }
 ``` 
 terakhir untuk opsi -d maka akan mengambil directory yang dipilih saja dengan argv[2]
-=======
-# Shift 3 SISOP 2022 - IT11
-Penyelesaian Soal Shift 3 Sistem Operasi 2021
-Kelompok IT
-  * Clarissa Fatimah 053119400000012
-  * Ghimnastiar Al Abiyyuna 05311940000042
-  * Ravina Rahmanisa 05311940000046
 
----
-## Table of Contents
-* [Soal 1](#soal-1)
- * [client.c](#client)
- * [server.c](#server)
-* [Soal 2](#soal-2)
- *
-* [Soal 3](#soal-3)
+## Output soal 3
+### opsi -f
+![sebelum](./soal3/output/f_awal.jpg)
+#### input 
+![sebelum](./soal3/output/f_input.jpg)
+#### output
+![sebelum](./soal3/output/f_output.jpg)
 
->>>>>>> 2fb057b1af91750a5f2115a7f410b5b916fff291
+### opsi -d
+#### input
+![sebelum](./soal3/output/d_input.jpg)
+#### output
+<p> akan kosong dan masuk ke folder sesuai ekstensi </P>
+
+![sebelum](./soal3/output/d_output.jpg)
+
+<p> masuk ke folder sesuai ekstensi</p>
+
+![sebelum](./soal3/output/d_output2.jpg)
+
+### opsi *
+#### input 
+![sebelum](./soal3/output/opsi_terakhir.jpg)
+#### output
+![sebelum](./soal3/output/output_terakhir.jpg)
+
+## Kendala Soal 3
+1. kendala yang pada pengaksesan memori yang tidak diinginkan sehingga menyebabkan segmentation fault pada opsi *
